@@ -10,22 +10,20 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
-    devServer: {
-        contentBase: './dist'
-    },
     devtool: 'eval-source-map',
+        devServer: {               
+          contentBase: './dist'   
+    },
     plugins: [
         new ESLintPlugin(),
         new CleanWebpackPlugin(),
-        new Dotenv(),
         new HtmlWebpackPlugin({
-            title: 'Template',
-            template: './src/index.html',
-            inject: 'body'
-        })
-        
+          title: 'Shape Tracker',
+          template: './src/index.html',
+          inject: 'body'
+        }),
+        new Dotenv()
     ],
-
     module: {
         rules: [
             {
